@@ -1,0 +1,10 @@
+#!/bin/bash
+
+docker kill chef-server || true
+docker rm chef-server || true
+
+# run it in background
+# docker run --privileged --name chef-server -v ~/chef-logs:/var/log -p 443:443 -d  chef-server
+
+# run in foreground
+docker run --privileged --name chef-server -v ~/chef-logs:/var/log -p 443:443 -ti chef-server

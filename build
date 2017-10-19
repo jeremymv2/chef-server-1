@@ -1,0 +1,2 @@
+# docker build --rm --no-cache -t chef-server .
+docker build --rm -t chef-server .
