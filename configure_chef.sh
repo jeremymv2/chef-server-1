@@ -56,10 +56,11 @@ chef-server-ctl user-create admin Admin User admin@myorg.com "passwd"  --filenam
 chef-server-ctl org-create my_org "Default organization" --association_user admin --filename /etc/chef/my_org-validator.pem
 echo -e "\nRunning: 'chef-server-ctl install chef-manage'"...
 chef-server-ctl install chef-manage
+/opt/chef-manage/embedded/bin/runsvdir-start &
 echo -e "\nRunning: 'chef-server-ctl reconfigure'"...
 chef-server-ctl reconfigure
 echo -e "\nRunning: 'chef-manage-ctl reconfigure'"...
-# chef-manage-ctl reconfigure --accept-license
+chef-manage-ctl reconfigure --accept-license
 echo "{ \"error\": \"Please use https:// instead of http:// !\" }" > /var/opt/opscode/nginx/html/500.json
 sed -i "s,/503.json;,/503.json;\n    error_page 497 =503 /500.json;,g" /var/opt/opscode/nginx/etc/chef_https_lb.conf
 sed -i '$i\    location /knife_admin_key.tar.gz {\n      default_type application/zip;\n      alias /etc/chef/knife_admin_key.tar.gz;\n    }' /var/opt/opscode/nginx/etc/chef_https_lb.conf
