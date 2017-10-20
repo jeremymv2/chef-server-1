@@ -1,2 +1,5 @@
-# docker build --rm --no-cache -t chef-server .
-docker build --rm -t chef-server .
+#!/bin/bash
+
+# without cache
+# docker build --rm --no-cache -t chef-server-standalone .
+docker build --rm -t chef-server-standalone .

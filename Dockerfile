@@ -1,14 +1,15 @@
 FROM ubuntu:14.04
-MAINTAINER Clement Buisson <clement.buisson@gmail.com>
+MAINTAINER Jeremy Miller <jmiller@chef.io>
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
-    apt-get install -yq --no-install-recommends wget curl rsync && \
-    wget --no-check-certificate --content-disposition "http://www.opscode.com/chef/download-server?p=ubuntu&pv=14.04&m=x86_64&v=12&prerelease=false&nightlies=false" && \
-    dpkg -i chef-server*.deb && \
-    rm chef-server*.deb && \
-    apt-get remove -y wget && \
+    apt-get install -yq --no-install-recommends curl wget ntp ntpdate && \
     rm -rf /var/lib/apt/lists/*
-COPY run.sh configure_chef.sh /usr/local/bin/
+
+COPY *.deb /var/tmp/
+COPY setup.sh configure_chef.sh /usr/local/bin/
+
+VOLUME /var/opt/opscode/postgresql
 VOLUME /var/log
-CMD ["run.sh"]
+
+ENTRYPOINT ["setup.sh"]

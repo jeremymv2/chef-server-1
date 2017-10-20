@@ -1,13 +1,20 @@
 # chef-server
 
-chef-server will run Chef Server 12 in an Ubuntu Trusty 14.04 LTS container.  
+chef-server will run latest Chef Server 12 in an Ubuntu Trusty 14.04 LTS container.
 Image Size: Approximately 1GB
 
-This is a fork of: [base/chef-server](https://registry.hub.docker.com/u/base/chef-server/).
+This is a fork of: [c-buisson/chef-server](https://github.com/c-buisson/chef-server)
+
+WORK IN PROGRESS!!!
+
+## Quickstart
+
+1. `./build`
+2. `./run`
 
 ## Environment
 ##### Protocol / Port
-Chef is running over HTTPS/443 by default.  
+Chef is running over HTTPS/443 by default.
 You can however change that to another port by adding `-e SSL_PORT=new_port` to the `docker run` command below and update the expose port `-p` accordingly.
 
 ##### SSL certificate

@@ -1,10 +1,13 @@
 #!/bin/bash
 
-docker kill chef-server || true
-docker rm chef-server || true
+docker kill chef-server-standalone || true
+docker rm chef-server-standalone || true
 
-# run it in background
-# docker run --privileged --name chef-server -v ~/chef-logs:/var/log -p 443:443 -d  chef-server
+# run in background
+# docker run --privileged --name chef-server-standalone -v ~/chef-server-logs:/var/log -p 443:443 -d  chef-server-standalone
 
 # run in foreground
-docker run --privileged --name chef-server -v ~/chef-logs:/var/log -p 443:443 -ti chef-server
+docker run --privileged --name chef-server-standalone \
+  -v ~/chef-server-postgres:/var/opt/opscode/postgresql \
+  -v ~/chef-server-logs:/var/log \
+  -p 443:443 -ti chef-server-standalone
