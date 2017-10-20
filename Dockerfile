@@ -9,7 +9,7 @@ RUN apt-get update && \
 COPY *.deb /var/tmp/
 COPY setup.sh configure_chef.sh /usr/local/bin/
 
-VOLUME /var/opt/opscode/postgresql
+VOLUME /var/opt
 VOLUME /var/log
 
 ENTRYPOINT ["setup.sh"]
