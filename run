@@ -9,5 +9,4 @@ docker rm chef-server-standalone || true
 # run in foreground
 docker run --privileged --name chef-server-standalone \
   -v ~/chef-server-opt:/var/opt \
-  -v ~/chef-server-logs:/var/log \
   -p 443:443 -ti chef-server-standalone
