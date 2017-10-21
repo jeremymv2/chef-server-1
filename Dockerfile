@@ -12,4 +12,4 @@ COPY setup.sh configure_chef.sh /usr/local/bin/
 VOLUME /var/opt
 VOLUME /var/log
 
-ENTRYPOINT ["setup.sh"]
+CMD ["setup.sh"]

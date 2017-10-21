@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -x
 
 # Create chef-server.rb with variables
 echo "nginx['enable_non_ssl']=false" > /etc/opscode/chef-server.rb
@@ -69,5 +71,5 @@ cd /etc/chef/ && tar -cvzf knife_admin_key.tar.gz admin.pem my_org-validator.pem
 echo -e "\nRestart Nginx..."
 chef-server-ctl restart nginx
 chef-server-ctl status
-touch /root/chef_configured
+touch /var/opt/opscode/chefserver_docker_bootstrapped
 echo -e "\n\nDone!\n"
