@@ -31,7 +31,6 @@ rm -f /var/tmp/*.deb
 if [ -f "/var/opt/opscode/chefserver_docker_bootstrapped" ]
   then
     echo -e "\nChef Server already setup!\n"
-    /opt/opscode/embedded/bin/runsvdir-start &
     chef-server-ctl reconfigure
     chef-server-ctl start
     chef-server-ctl status
