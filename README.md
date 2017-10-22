@@ -1,13 +1,15 @@
 # chef-server-docker
 
-chef-server-docker will run the latest stable release of a standalone Chef Server in an Ubuntu Trusty 14.04 LTS container.
+chef-server-docker will run a standalone Chef Server in an Ubuntu Trusty 14.04 LTS container.
 
 This is a fork of: [c-buisson/chef-server](https://github.com/c-buisson/chef-server)
 
 ## Quickstart
 
-1. `./build`
-2. `./run`
+1. If needed modify `variables.sh`
+2. Optionally download the version of a .deb package for Chef Server desired into this directory (otherwise latest stable will be downloaded into the container)
+3. execute `./build`
+2. execute `./run`
 
 ## State
 State is preserved via `/var/opt` volume mounted on the host.

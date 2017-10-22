@@ -3,6 +3,8 @@
 docker stop chef-server-standalone || true
 docker rm chef-server-standalone || true
 
+. $(dirname "$0")/variables.sh
+
 # run in background
 # docker run --privileged --name chef-server-standalone \
 #   -v ~/chef-server-opt:/var/opt \
