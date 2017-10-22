@@ -1,16 +1,17 @@
 # chef-server
 
 chef-server will run latest Chef Server 12 in an Ubuntu Trusty 14.04 LTS container.
-Image Size: Approximately 1GB
 
 This is a fork of: [c-buisson/chef-server](https://github.com/c-buisson/chef-server)
-
-WORK IN PROGRESS!!! Not officially supported.
 
 ## Quickstart
 
 1. `./build`
 2. `./run`
+
+## State
+State is preserved via `/var/opt` volume mounted on the host.
+Use `docker stop <container>` to gracefully quiesce PostgreSQL and other services.
 
 ## Environment
 ##### Protocol / Port
