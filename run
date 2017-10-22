@@ -4,7 +4,9 @@ docker stop chef-server-standalone || true
 docker rm chef-server-standalone || true
 
 # run in background
-# docker run --privileged --name chef-server-standalone -v ~/chef-server-logs:/var/log -p 443:443 -d  chef-server-standalone
+# docker run --privileged --name chef-server-standalone \
+#   -v ~/chef-server-opt:/var/opt \
+#   -p 443:443 -d chef-server-standalone
 
 # run in foreground
 docker run --privileged --name chef-server-standalone \

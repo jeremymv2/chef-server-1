@@ -7,7 +7,7 @@ export PATH=/opt/opscode/embedded/bin:$PATH
 # Shut down nicely when we're told to stop
 # We could further customize this to do a reconfigure, etc based on signal.
 trap cleanup SIGTERM
-trap cleanup SIGKILL
+trap cleanup SIGINT
 
 cleanup() {
   echo 'Stopping services' | wall
