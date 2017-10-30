@@ -1,7 +1,8 @@
 # chef-server-docker
 
-Not officially supported by Chef!!!!
-This is for proof of concept only!
+### Not officially supported by Chef!!!!
+
+### This is for proof of concept only!
 
 chef-server-docker will run a standalone Chef Server in an Ubuntu Trusty 14.04 LTS container.
 
